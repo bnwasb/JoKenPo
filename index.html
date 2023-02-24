@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <link href="images/hand.ico" rel="icon">
+        <title>JoKenPô</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link href="styles/style.css" rel="stylesheet">
+        <!--SEJA BEM-VINDO AO MEU PRIMEIRO JOGO. EM BREVE IREI APRIMORAR O DESIGN E INCLUIR UMA LÓGICA DE PLACAR!-->
+    </head>
+    <body>
+        <h1>Pedra, Papel... Tesoura!</h1>
+        <h2 class="vencedor"></h2>
+
+        <div class="center">
+
+            <div class="align">
+                <div class="player-options">
+                    <h2 class="idPlayer">Jogador 1</h2>
+                    <div class="opimg"><img opt="pedra" src="images/rock.png" alt="pedra-clicável"/></div>
+                    <div class="opimg"><img opt="papel" src="images/paper.png" alt="papel-clicável"/></div>
+                    <div class="opimg"><img opt="tesoura" src="images/scisor.png" alt="tesoura-clicável"/></div>
+                </div><!--player-options-->
+
+                <div class="enemy-options">
+                    <h2 class="idPlayer">Máquina</h2>
+                    <div class="opimg"><img opt='pedra' src="images/rock.png" alt="pedra"/></div>
+                    <div class="opimg"><img opt='papel' src="images/paper.png" alt="papel"/></div>
+                    <div class="opimg"><img opt='tesoura' src="images/scisor.png" alt="tesoura"/></div>
+                </div><!--enemy-options-->
+            </div><!--align-->
+
+        </div><!--center-->
+        
+        <script>
+            var elementos = document.querySelectorAll('.player-options div > img');
+            var playerOpt = "";
+            var inimigoOpt = "";
+
+            function validarVitoria(){
+                //Variável que atribui os resultados:
+                let vencedor = document.querySelector('.vencedor');
+
+                if(playerOpt == 'pedra'){
+                    if(inimigoOpt == 'pedra'){
+                        vencedor.innerHTML = "EMPATOU";
+                    }else if(inimigoOpt == 'papel'){
+                        vencedor.innerHTML = "DERROTA";
+
+                    }else if(inimigoOpt == 'tesoura'){
+                        vencedor.innerHTML = "VITÓRIA";
+                    };
+                }else if(playerOpt == 'papel'){
+
+                    if(inimigoOpt == 'pedra'){
+                        vencedor.innerHTML = "VITÓRIA";
+                    }else if(inimigoOpt == 'papel'){
+                        vencedor.innerHTML = "EMPATOU";
+                    }else if(inimigoOpt == 'tesoura'){
+                        vencedor.innerHTML = "DERROTA";
+                    };
+                }else if(playerOpt == 'tesoura'){
+                    if(inimigoOpt == 'pedra'){
+                        vencedor.innerHTML = "DERROTA";
+                    }else if(inimigoOpt == 'papel'){
+                        vencedor.innerHTML = "VITÓRIA";
+                    }else if(inimigoOpt=='tesoura'){
+                        vencedor.innerHTML = "EMPATOU";
+                    };
+                };
+            };
+
+            function resetInimigo(){
+
+                const enemyOptions = document.querySelectorAll('.enemy-options div');
+                for(var i=0; i<enemyOptions.length; i++){
+                    enemyOptions[i].childNodes[0].style.opacity = 0.2;
+                }
+            }
+
+            function inimigoJogar(){
+                //'Math.floor'retorna oMenor numInteiro(arredondado) entre ()'s:
+                let rand = Math.floor(Math.random()*3); 
+                //Math.random geraNúmero Aleatório entre [0 e 1].
+
+                const enemyOptions = document.querySelectorAll('.enemy-options div');
+                resetInimigo(); //Deixa asOpções  doInimigo opacas p/ próximaRodada;
+
+                for(var i=0; i < enemyOptions.length; i++){
+                    if(i==rand){
+                        enemyOptions[i].childNodes[0].style.opacity = 1;
+                        inimigoOpt = enemyOptions[i].childNodes[0].getAttribute('opt');
+                    }
+                }
+            }
+
+            function resetOpacityPlayer(){
+                for(var i = 0; i < elementos.length; i++){
+                    elementos[i].style.opacity = 0.2;
+                }
+            }
+
+            for(var i = 0; i < elementos.length; i++){
+                elementos[i].addEventListener('click',function(t){
+                    resetOpacityPlayer();
+                    t.target.style.opacity = 1;
+                    playerOpt = t.target.getAttribute('opt');                
+                    inimigoJogar();
+                    validarVitoria();
+                }); 
+            }
+        </script>
+    </body>
+</html>

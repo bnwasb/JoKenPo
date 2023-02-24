@@ -1,0 +1,234 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.center{
+    width:100vw;
+    margin:0;
+}
+
+.align{
+    display: flex;
+}
+
+h1{
+    text-align: center;
+    padding:20px 0;
+    font-family: 'Comic Sans MS';
+    font-size:20px;
+    color:white;
+    background-color:cadetblue;  
+}
+
+h2{
+    margin: 10px 0;
+    text-align: center;
+}
+
+h2.vencedor{
+    font-size: 25px;
+    color:darkslateblue;
+    background-color:bisque;
+    padding: 6px 0;
+    margin: 0;
+}
+
+.player-options,.enemy-options{
+    width:50%;
+    text-align: center;
+}
+
+h2.idPlayer{
+    display:inline-block;
+    background-color: rgb(119, 119, 197);
+    border-radius: 10px;
+    color: white;
+    font-size:18px;
+    padding:5px 20px;
+}
+
+.player-options img,
+    .enemy-options img{
+    max-width: 115px;
+    max-height:143px;
+    opacity: 0.3;
+}
+
+.player-options img:hover{
+    opacity: 0.6;
+    border:3px solid #e4c124;
+    padding:5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.opimg {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width:360px) {
+    h1{
+        font-size:24px;
+    }
+    h2.idPlayer{
+        font-size:22px;
+    }
+    .player-options img,
+    .enemy-options img{
+    max-width: 125px;
+    max-height:157px;
+    }
+}
+
+/*****RESPONSIVE*****/
+@media screen and (min-width:380px) {
+    h1{
+        padding:40px 0;
+        font-size:26px;
+    }
+    h2.idPlayer{
+        font-size:26px;
+    }
+    h2.vencedor{
+        font-size: 30px;
+        padding: 14px 0;
+    }
+    .opimg {
+        margin: 14px 0;
+    }
+}
+@media screen and (min-width:412px) {
+    h2.vencedor{
+        font-size: 32px;
+        padding: 12px 0;
+    }
+    h1{
+        font-size:30px;
+        padding:20px 0;
+    }
+    h2.idPlayer{
+        font-size:28px;
+        margin:22px 0;
+        padding: 6px 20px;
+    }
+}
+@media screen and (min-width:414px) and (min-height:896px) {
+    h2.vencedor{
+        padding: 22px 0;
+    }
+    .opimg {
+        margin: 20px 0;
+    }
+}
+@media screen and (min-width:540px) {
+    h1{
+        font-size:30px;
+        margin: 0;
+    }
+    .opimg {
+        margin: 6px 0;
+    }
+    h2.vencedor{
+        padding: 10px 0;
+    }
+}
+@media screen and (min-width:768px) {
+    .center{
+        width:66%;
+        margin:0 17%;
+    }
+    .player-options img,
+    .enemy-options img{
+    max-width: 170px;
+    max-height:217px;
+    }
+    h2.vencedor{
+    padding: 26px 0;
+    }
+    h1{
+        font-size:34px;
+        margin: 0;
+    }
+    h2.idPlayer{
+        font-size:32px;
+    }
+    .opimg {
+        margin: 12px 0;
+    }
+}
+@media screen and (min-width:912px) and (min-height:1300px) {
+    .center{
+        width:70%;
+        margin:0 15%;
+    }
+    .player-options img,
+    .enemy-options img{
+    max-width: 200px;
+    max-height:258px;
+    }
+    h2.vencedor{
+    padding: 38px 0;
+    font-size: 42px;
+    }
+    h1{
+        padding:58px 0;
+        font-size:42px;
+    }
+    h2.idPlayer{
+        font-size:40px;
+        margin:30px 0;
+    }
+    .opimg {
+        margin: 28px 0;
+    }
+}
+@media screen and (min-width:1024px) and (max-height:600px) {
+    .center{
+        width:60%;
+        margin:0 20%;
+    }
+    .player-options img,
+    .enemy-options img{
+    max-width: 125px;
+    max-height:157px;
+    }
+    h2.vencedor{
+    padding: 0;
+    font-size: 34px;
+    }
+    h1{
+        padding:6px 0;
+        font-size:32px;
+    }
+    h2.idPlayer{
+        font-size:28px;
+        margin:6px 0;
+        padding: 4px 20px;
+    }
+    .opimg {
+        margin: 5px 0;
+    }
+}
+@media screen and (min-width:1024px) and (min-height:700px) {
+    h2.vencedor{
+        padding: 14px 0;
+        font-size: 36px;
+    }
+    h1{
+        padding:10px 0;
+        font-size:36px;
+    }
+    h2.idPlayer{
+        font-size:30px;
+        margin:14px 0;
+        padding: 8px 20px;
+    }
+    .player-options img,
+    .enemy-options img{
+    max-width: 135px;
+    max-height:170px;
+    }
+}
